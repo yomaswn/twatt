@@ -4,7 +4,7 @@ var config = require('../config.json')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Welcome yomatwit' });
 });
 
 var Twit = require('twit')
@@ -21,7 +21,7 @@ router.get('/search', function(req,res,next){
   let quer = req.query.q
   client.get('search/tweets', { q: quer, count: 1 }, function(error, data, response) {
     if (error) throw error;
-  res.send(data.statuses)
+  res.send(data)
   })
 
 
