@@ -14,12 +14,11 @@ var client = new Twit({
   consumer_secret:      config.consumer_secret,
   access_token:         config.access_token,
   access_token_secret:  config.access_token_secret,
-  timeout_ms:           60*1000,  // optional HTTP request timeout to apply to all requests.
 })
 
 router.get('/search', function(req,res,next){
   let quer = req.query.q
-  client.get('search/tweets', { q: quer, count: 1 }, function(error, data, response) {
+  client.get('search/tweets', { q: quer }, function(error, data, response) {
     if (error) throw error;
   res.send(data)
   })
